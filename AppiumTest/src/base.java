@@ -1,6 +1,7 @@
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.ios.IOSDriver;
@@ -15,14 +16,15 @@ public class base {
 
 		
 	DesiredCapabilities  d= new DesiredCapabilities ();
-	d.setCapability(MobileCapabilityType.DEVICE_NAME, "iphone 8 plus");
-	d.setCapability(MobileCapabilityType.PLATFORM_NAME, "IOS");
+	d.setCapability("DEVICE_NAME","iphone 8 plus");
+	d.setCapability("PLATFORM_NAME" ,"IOS");
 	
-	d.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
-	d.setCapability(MobileCapabilityType.APP, "//Users//mohammadhasan//Desktop//UIKitCatalog.app");
+	d.setCapability("platform version","13.2.2");
+	d.setCapability(CapabilityType.BROWSER_NAME, "Safari");
 	
-	IOSDriver<IOSElement> driver= new IOSDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),d);
+	IOSDriver driver= new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), d);
 	
+	driver.get("http://google.com");
 	
 	
 	
